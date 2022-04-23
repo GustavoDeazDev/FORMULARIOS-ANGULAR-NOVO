@@ -1,17 +1,19 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { of } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class CepServiceService {
+export class ConsultaCepService {
+
 
   constructor(private http: HttpClient) { }
 
-  consultaCEP(cep:string) {
+  consultaCEP(cep: string) {
 
-   
+    console.log(cep);
 
     // Nova variável "cep" somente com dígitos.
     cep = cep.replace(/\D/g, '');
@@ -30,4 +32,3 @@ export class CepServiceService {
     return of({});
   }
 }
-

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NovoFormComponent } from './novo-form.component';
+import { TemplateFormComponent } from './template-form.component';
 
-describe('NovoFormComponent', () => {
-  let component: NovoFormComponent;
-  let fixture: ComponentFixture<NovoFormComponent>;
+describe('TemplateFormComponent', () => {
+  let component: TemplateFormComponent;
+  let fixture: ComponentFixture<TemplateFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NovoFormComponent ]
+      declarations: [ TemplateFormComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NovoFormComponent);
+    fixture = TestBed.createComponent(TemplateFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

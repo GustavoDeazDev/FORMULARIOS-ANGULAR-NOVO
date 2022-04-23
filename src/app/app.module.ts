@@ -15,11 +15,14 @@ import { CampoControlErroComponent } from './campo-control-erro/campo-control-er
 import { HttpClientModule } from '@angular/common/http';
 
 import { RestApiService } from './shared/rest-api.service';
-import { CepServiceService } from './shared/cep-service.service';
-import { NovoFormComponent } from './novo-form/novo-form.component';
+
+
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
-import { TesteCepComponent } from './teste-cep/teste-cep.component';
-import { NovocepserviceService } from './novocepservice.service';
+import { TemplateFormComponent } from './template-form/template-form.component';
+import { ConsultaCepService } from './consulta-cep.service';
+
+
+
 
 @NgModule({
   declarations: [
@@ -27,10 +30,12 @@ import { NovocepserviceService } from './novocepservice.service';
 
     FormDebugComponent,
     CampoControlErroComponent,
-
-    NovoFormComponent,
     ReactiveFormComponent,
-    TesteCepComponent
+    TemplateFormComponent
+
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,7 @@ import { NovocepserviceService } from './novocepservice.service';
     MatIconModule,
     HttpClientModule
   ],
-  providers: [ RestApiService, CepServiceService , NovocepserviceService],
+  providers: [ RestApiService, ConsultaCepService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

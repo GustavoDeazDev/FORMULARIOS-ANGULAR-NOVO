@@ -1,23 +1,20 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { CepServiceService } from '../shared/cep-service.service';
-
-
-
+import { Component } from '@angular/core';
+import { ConsultaCepService } from '../consulta-cep.service';
 
 @Component({
-  selector: 'app-novo-form',
-  templateUrl: './novo-form.component.html',
-  styleUrls: ['./novo-form.component.css']
+  selector: 'app-template-form',
+  templateUrl: './template-form.component.html',
+  styleUrls: ['./template-form.component.css']
 })
-export class NovoFormComponent implements OnInit {
+export class TemplateFormComponent {
 
   usuario: any = {
     nome: null,
     email: null
   };
 
-  onSubmit(formulario:any) {
+  onSubmit(formulario : any) {
     console.log(formulario);
 
 
@@ -31,17 +28,17 @@ export class NovoFormComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private cepService: CepServiceService
+    private cepService: ConsultaCepService
   ) { }
 
   ngOnInit() {
   }
 
-  verificaValidTouched(campo : any) {
+  verificaValidTouched(campo:any) {
     return !campo.valid && campo.touched;
   }
 
-  aplicaCssErro(campo : any) {
+  aplicaCssErro(campo:any) {
     return {
       'has-error': this.verificaValidTouched(campo),
       'has-feedback': this.verificaValidTouched(campo)
@@ -59,11 +56,24 @@ export class NovoFormComponent implements OnInit {
   }
 
   populaDadosForm(dados:any, formulario:any) {
+    /*formulario.setValue({
+      nome: formulario.value.nome,
+      email: formulario.value.email,
+      endereco: {
+        rua: dados.logradouro,
+        cep: dados.cep,
+        numero: '',
+        complemento: dados.complemento,
+        bairro: dados.bairro,
+        cidade: dados.localidade,
+        estado: dados.uf
+      }
+    });*/
 
     formulario.form.patchValue({
       endereco: {
         rua: dados.logradouro,
-          cep: dados.cep,
+        // cep: dados.cep,
         complemento: dados.complemento,
         bairro: dados.bairro,
         cidade: dados.localidade,
@@ -71,7 +81,7 @@ export class NovoFormComponent implements OnInit {
       }
     });
 
-
+    // console.log(form);
   }
 
   resetaDadosForm(formulario:any) {
@@ -87,5 +97,4 @@ export class NovoFormComponent implements OnInit {
   }
 
 }
-
 
