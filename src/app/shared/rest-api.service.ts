@@ -22,6 +22,13 @@ export class RestApiService {
     return this.http.post(this.apiURL,forms);
   }
 
+  deletaRegistro(forms:any){
+    return this.http.delete(this.apiURL,forms
+   );
+
+    }
+
+
 
 
 

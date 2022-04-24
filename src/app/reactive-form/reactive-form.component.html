@@ -41,6 +41,8 @@
     </div>
 
     <div class="form-group">
+
+      <div class="col-md-3">
       <label for="cep">Cep</label>
       <input type="cep" id="cep" name="cep"
         class="form-control" placeholder="Cep"
@@ -48,11 +50,84 @@
        <app-campo-control-erro
        [mostraErro]="verificaValidTouched('cep')"
        msgErro="Cep é obrigatório"></app-campo-control-erro>
+      </div>
+
+    </div>
+
+
+    <div class="form-group">
+      <div class="row">
+      <div class="col-md-3">
+      <label for="logradouro">logradouro</label>
+      <input type="logradouro" id="logradouro" name="logradouro"
+        class="form-control" placeholder="logradouro"
+       formControlName="logradouro"/>
+       <app-campo-control-erro
+       [mostraErro]="verificaValidTouched('logradouro')"
+       msgErro="Logradouro é obrigatório"></app-campo-control-erro>
+         </div>
+
+
+
+
+
+      <div class="col-md-3">
+
+      <label for="bairro">Número</label>
+      <input type="bairro" id="bairro" name="bairro"
+        class="form-control" placeholder="bairro"
+       formControlName="bairro"/>
+       <app-campo-control-erro
+       [mostraErro]="verificaValidTouched('bairro')"
+       msgErro="Número é obrigatório"></app-campo-control-erro>
+
+        </div>
+
+        <div class="col-md-6">
+      <label for="bairro">Bairro</label>
+      <input type="bairro" id="bairro" name="bairro"
+        class="form-control" placeholder="bairro"
+       formControlName="bairro"/>
+       <app-campo-control-erro
+       [mostraErro]="verificaValidTouched('bairro')"
+       msgErro="Bairro é obrigatório"></app-campo-control-erro>
+
+
+       </div>
+    </div>
+  </div>
+
+
+    <div class="form-group">
+      <label for="estado" class="control-label">Estado</label>
+      <select class="form-control" id="estado" formControlName="estado">
+        <option *ngFor="let estado of estados" [value]="estado.sigla">{{ estado.nome }}</option>
+      </select>
+
+       <app-campo-control-erro
+       [mostraErro]="verificaValidTouched('estado')"
+       msgErro="Estado é obrigatório"></app-campo-control-erro>
 
 
     </div>
 
 
+    <div class="form-group">
+      <label for="cidade">Cidade</label>
+      <input type="cidade" id="cidade" name="cidade"
+        class="form-control" placeholder="cidade"
+       formControlName="cidade"/>
+       <app-campo-control-erro
+       [mostraErro]="verificaValidTouched('cidade')"
+       msgErro="cidade é obrigatório"></app-campo-control-erro>
+
+
+    </div>
+
+
+
+
+<br/>
 
 
     <button type="submit" class="btn btn-primary"
@@ -76,6 +151,8 @@
           <th class="w-25">E-mail</th>
           <th class="w-25">CEP</th>
 
+
+
         </tr>
       </thead>
 
@@ -87,6 +164,7 @@
 
           <td>{{x.email}}</td>
           <td>{{x.cep}}</td>
+
 
         </tr>
       </tbody>

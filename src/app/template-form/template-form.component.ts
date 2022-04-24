@@ -56,24 +56,11 @@ export class TemplateFormComponent {
   }
 
   populaDadosForm(dados:any, formulario:any) {
-    /*formulario.setValue({
-      nome: formulario.value.nome,
-      email: formulario.value.email,
-      endereco: {
-        rua: dados.logradouro,
-        cep: dados.cep,
-        numero: '',
-        complemento: dados.complemento,
-        bairro: dados.bairro,
-        cidade: dados.localidade,
-        estado: dados.uf
-      }
-    });*/
+
 
     formulario.form.patchValue({
       endereco: {
         rua: dados.logradouro,
-        // cep: dados.cep,
         complemento: dados.complemento,
         bairro: dados.bairro,
         cidade: dados.localidade,
@@ -81,7 +68,7 @@ export class TemplateFormComponent {
       }
     });
 
-    // console.log(form);
+
   }
 
   resetaDadosForm(formulario:any) {

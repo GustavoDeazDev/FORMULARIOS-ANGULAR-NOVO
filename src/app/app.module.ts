@@ -20,6 +20,8 @@ import { RestApiService } from './shared/rest-api.service';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { TemplateFormComponent } from './template-form/template-form.component';
 import { ConsultaCepService } from './consulta-cep.service';
+import { DropdownServiceService } from './dropdown-service.service';
+
 
 
 
@@ -32,6 +34,7 @@ import { ConsultaCepService } from './consulta-cep.service';
     CampoControlErroComponent,
     ReactiveFormComponent,
     TemplateFormComponent
+
 
 
 
@@ -49,7 +52,7 @@ import { ConsultaCepService } from './consulta-cep.service';
     MatIconModule,
     HttpClientModule
   ],
-  providers: [ RestApiService, ConsultaCepService ],
+  providers: [ RestApiService, ConsultaCepService, DropdownServiceService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,7 +4,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { RestApiService } from '../shared/rest-api.service';
 
-import {  FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { FormBuilder, Validators } from "@angular/forms";
+import { DropdownServiceService } from '../dropdown-service.service';
+import { EstadoBr } from '../shared/models/estado-br';
 
 
 
@@ -18,16 +20,21 @@ export class ReactiveFormComponent implements OnInit {
   contatos!: Array<any>;
 
   formdata: any;
-  email:any;
-  nome:any;
-  cep:any;
+
+
+  estados!: EstadoBr[];
 
 
   constructor(private service: RestApiService,
      private formBuilder: FormBuilder,
+     private dropdownService: DropdownServiceService,
+
     private http: HttpClient ) { }
 
   ngOnInit(): void {
+
+    this.dropdownService.getEstadosBr()
+    .subscribe(dados => this.estados = dados);
 
    this.configurarFormulario();
 
@@ -38,14 +45,7 @@ export class ReactiveFormComponent implements OnInit {
 
 
 
- onSubmit(formdata:any) {
 
-  this.http.post('https://httpbin.org/post', JSON.stringify(formdata.value))
-    .subscribe(dados => {
-      console.log(dados);
-      formdata.form.reset();
-    });
-}
 
 
  verificaValidTouched(campo:any){
@@ -61,7 +61,15 @@ export class ReactiveFormComponent implements OnInit {
   this.formdata = this.formBuilder.group({
     nome: [null, Validators.required],
     email: [null, [Validators.required, Validators.email]],
-    cep: [null, Validators.required]
+    cep: [null, Validators.required],
+
+    numero: [null, Validators.required],
+
+    logradouro: [null, Validators.required],
+    bairro: [null, Validators.required],
+    cidade: [null, Validators.required],
+    estado: [null, Validators.required]
+
   });
 }
 
@@ -73,6 +81,17 @@ export class ReactiveFormComponent implements OnInit {
         this.formdata.reset();
       });
     }
+  //   deletaRegistro() {
+
+  //       if (window.confirm('Are you sure, you want to delete?')){
+  //     this.service.deletaRegistro(this.formdata.value).subscribe(resposta => {
+  //       this.service.listar();
+
+
+
+  //     })
+  //   }
+  // }
   }
 
 
